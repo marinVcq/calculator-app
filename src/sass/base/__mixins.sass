@@ -1,0 +1,24 @@
+@mixin respond($breakpoint)
+	@if $breakpoint==desktop
+		@media only screen and (min-width: 1000px)
+			@content
+	@if $breakpoint==mobile
+		@media only screen and (min-width: 375px)
+			@content
+
+@mixin flexbox($direction, $justify, $align)
+	display: flex
+	flex-direction: $direction
+	justify-content: $justify
+	align-items: $align
+
+@mixin width-height($w,$h)
+	width: $w
+	height: $h
+
+@mixin set-position($position,$top: 0,$left: 0,$right: 0,$bottom: 0)
+	position: $position
+	top: $top
+	left: $left
+	right: $right
+	bottom: $bottom

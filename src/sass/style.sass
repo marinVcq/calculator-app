@@ -1,0 +1,65 @@
+/* base */
+@import './base/__mixins.sass'
+@import './base/__base.sass'
+
+.wrapper
+  width: 100vw
+  height: 100vh
+  max-width: 375px
+  max-height: 667px
+  padding: 10px
+  background-color: rgba(220,220,210,1)
+
+.screen
+  height: 100px
+  width: 100%
+  margin-bottom: 10px
+  background-color: rgba(grey, 0.8)
+  border-radius: 10px
+  @include flexbox(column, center, center)
+  color: white
+
+  .result
+    background: transparent
+    color: white
+    font-size: 15px
+    border: none
+    font-weight: bold
+
+  .expression
+    @include set-position(absolute,100,0)
+    margin: 10px
+
+.button-box 
+  width: 100%
+  height: calc(100% - 110px)
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-template-rows: repeat(5, 1fr)
+  grid-gap: 10px
+
+.button
+  text-align: center
+  width: 80px
+  height: 50px
+  border: none
+  background-color: rgb(80, 60, 209)
+  font-size: 24px
+  color: rgb(255, 255, 255)
+  font-weight: bold
+  cursor: pointer
+  border-radius: 10px
+  outline: none
+
+.equals
+  grid-column: 3/5
+.reset
+  grid-column: 1/3
+
+
+.App 
+  width:  100vw
+  height: 100vh
+  margin: 0
+  padding: 0
+

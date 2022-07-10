@@ -62,7 +62,7 @@ The designs were created to the following widths:
 #### Backgrounds
 
 - Very dark violet (main background): hsl(268, 75%, 9%)
-- Very dark violet (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
+- Very dark violet 2 (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
 
 #### Keys
 
@@ -72,7 +72,7 @@ The designs were created to the following widths:
 - Pure cyan (key background, toggle): hsl(176, 100%, 44%)
 - Soft cyan (key shadow): hsl(177, 92%, 70%)
 
-- Very dark violet (key background): hsl(268, 47%, 21%)
+- Very dark violet 3 (key background): hsl(268, 47%, 21%)
 - Dark magenta (key shadow): hsl(290, 70%, 36%)
 
 #### Text
