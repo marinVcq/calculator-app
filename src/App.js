@@ -9,43 +9,53 @@ const btnValues = [
 ];
 
 const operators = ["+", "-", "+","/"];
-const comma = ".";
-const numbers = [1,2,3,4,5,6,7,8,9];
-
 
 const App = () => {
 
   /* Use state */
   let [calc, setCalc] = useState({
-    backValue: 0,
-    value: 0,
-    res: 0,
+    value: "0",
   });
 
   /* Delete function */
   const deleteHandler = () => {
-    setCalc({
-      ...calc,
-      value: calc.backValue,
-    });
+    /* Set value to "0" if delete all the expression */
+    if(calc.value.length === 1){
+      setCalc({
+        ...calc,
+        value: "0",
+      });     
+    }else{
+      setCalc({
+        ...calc,
+        value: calc.value.toString().slice(0,-1),
+      });      
+    }
   }
 
   /* Reset function */
   const resetHandler = () => {
     setCalc({
       ...calc,
-      value: 0,
-      backValue: 0,
+      value: "0",
     });
   }
 
-  /* Result function */
+  /* Resolve expression function */
+  const resolve = (expression) => {
+    try{
+      return eval(expression);
+    }catch(error){
+      console.log('ERROR');
+      return "0";
+    }
+  }
+
+  /* Get result function */
   const resultHandler = () => {
     setCalc({
       ...calc,
-      res: eval(calc.value),
-      value: eval(calc.value),
-      backValue: eval(calc.value),
+      value: resolve(calc.value),
     });
   }
 
@@ -78,27 +88,8 @@ const App = () => {
       setCalc({
         ...calc,
         value: calc.value + operator,
-        backValue: calc.value + operator,
-
       });
     }
-  }
-
-  /* Operator function with ternary - Not finish */
-  const operatorHandlerShort = (event) => {
-
-    event.preventDefault();
-    let operator = event.target.value;
-
-    setCalc({
-      ...calc,
-      value: operator === "-" && calc.value[calc.value.length - 1] === "-"
-          ? calc.value.slice(0,-1) + "+"
-          : calc.value + operator,
-      BackValue: operator === "-" && calc.value[calc.value.length - 1] === "-"
-          ? calc.value.slice(0,-1) + "+"
-          : calc.value + operator,
-    });
   }
 
   /* Number function*/
@@ -107,7 +98,7 @@ const App = () => {
 
     let number = event.target.value;
 
-    if(calc.value === 0){
+    if(calc.value === "0"){
       setCalc({
         ...calc,
         value: number,
@@ -120,35 +111,15 @@ const App = () => {
     }
   }
 
-
-  /* Number function with ternary - not finish */
-  const numberHandlerShort = (event) => {
-    event.preventDefault();
-
-    let number = event.target.value;
-
-    setCalc({
-      ...calc,
-      value: calc.value === 0 
-          ? number
-          : calc.value + number,
-    });
-  }
-
-  /* Comma function - Not finish */
+  /* Comma function */
   const commaHandler = () => {
 
-    /* Avoid succesion of commas and multiple comma in the value expression */
+    /* Avoid succesion of commas */
     if( calc.value[calc.value.length -1] === "."){
       setCalc({
         ...calc,
         value: calc.value,
       });
-    }else if(calc.value.toString().includes(".")){
-      setCalc({
-        ...calc,
-        value: calc.value,
-      });     
     }else{
       setCalc({
         ...calc,
@@ -157,17 +128,12 @@ const App = () => {
     }
   }
 
-  const screenHandler = () => {
-
-  }
-
   return (
     <div className="wrapper">
       <form className="calculator-form" name="calculatorForm">
 
         <div className="screen">
-          <input type="text" name="evalresult" value={"result: " + calc.res} className="result" onChange={screenHandler} ></input>
-          <span className="expression">Exp: {calc.value}</span>
+          <input type="text" name="evalresult" value={calc.value} className="result"></input>
         </div>
 
         <div className="button-box">
