@@ -42,7 +42,8 @@ const App = () => {
   });
 
   /* Delete function */
-  const deleteHandler = () => {
+  const deleteHandler = (e) => {
+    e.preventDefault();
     /* Set value to "0" if delete all the expression */
     if(calc.value.length === 1){
       setCalc({
@@ -58,7 +59,9 @@ const App = () => {
   }
 
   /* Reset function */
-  const resetHandler = () => {
+  const resetHandler = (e) => {
+    e.preventDefault();
+    
     setCalc({
       ...calc,
       value: "0",
@@ -76,7 +79,8 @@ const App = () => {
   }
 
   /* Get result function */
-  const resultHandler = () => {
+  const resultHandler = (e) => {
+    e.preventDefault();
     setCalc({
       ...calc,
       value: resolve(calc.value),
@@ -146,7 +150,8 @@ const App = () => {
   }
 
   /* Comma function */
-  const commaHandler = () => {
+  const commaHandler = (e) => {
+    e.preventDefault();
 
     /* Avoid succesion of commas */
     if( calc.value[calc.value.length -1] === "."){
