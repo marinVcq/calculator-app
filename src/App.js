@@ -4,11 +4,11 @@ const btnValues = [
   [7, 8, 9, "DEL"],
   [4, 5, 6, "+"],
   [1, 2, 3, "-"],
-  [".",0,'/','*'],
+  [".",0,'/','x'],
   ["RESET",'=']
 ];
 
-const operators = ["+", "-", "+","/"];
+const operators = ["+", "-", "+","/","x"];
 
 const App = () => {
 
@@ -65,25 +65,35 @@ const App = () => {
     event.preventDefault();
     let operator = event.target.value;
 
-
-    /* Operator can't follow an other (except + or -) */
-    if( operator === '-' && calc.value[calc.value.length - 1] === "-"){
+    if( operator === '-' && calc.value[calc.value.length - 1] === "-"){ /* Operator can't follow an other (except + or -) */
       setCalc({
         ...calc,
         value: calc.value.slice(0,-1) + "+",
-        backValue: calc.value.slice(0,-1) + "+",
       });
     }else if(operator === '+' && calc.value[calc.value.length - 1] === "+"){
        setCalc({
         ...calc,
         value: calc.value.slice(0,-1) + "+",
-        backValue: calc.value.slice(0,-1) + "+",
       });     
     }else if(operator === "/" && operators.includes(calc.value[calc.value.length -1])){
         setCalc({
           ...calc,
           value: calc.value,
         });
+    }else if(operator === "x"){
+
+      if(calc.value[calc.value.length -1] === "*"){
+        setCalc({
+          ...calc,
+          value: calc.value,
+        });         
+      }else{
+        setCalc({
+          ...calc,
+          value: calc.value + "*",
+        });         
+      }
+    
     }else{
       setCalc({
         ...calc,
@@ -131,6 +141,21 @@ const App = () => {
   return (
     <div className="wrapper">
       <form className="calculator-form" name="calculatorForm">
+
+        <div className="top" >
+          <h1 className="app-title">calc</h1>
+          <div className="theme-switcher">
+            <span className="label">THEME</span>
+            <div className="switch-button-container">
+              <div>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </div>
+              <button className="switch-button"><div className="switch-ball"></div></button>
+            </div>
+          </div>
+        </div>
 
         <div className="screen">
           <input type="text" name="evalresult" value={calc.value} className="result"></input>
