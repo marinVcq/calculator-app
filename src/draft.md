@@ -38,3 +38,33 @@
       });
     }
   }
+
+
+    /* Operator function with ternary - Not finish */
+  const operatorHandlerShort = (event) => {
+
+    event.preventDefault();
+    let operator = event.target.value;
+
+    setCalc({
+      ...calc,
+      value: operator === "-" && calc.value[calc.value.length - 1] === "-"
+          ? calc.value.slice(0,-1) + "+"
+          : calc.value + operator,
+    });
+  }
+
+
+    /* Number function with ternary - not finish */
+  const numberHandlerShort = (event) => {
+    event.preventDefault();
+
+    let number = event.target.value;
+
+    setCalc({
+      ...calc,
+      value: calc.value === 0 
+          ? number
+          : calc.value + number,
+    });
+  }

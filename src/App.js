@@ -1,4 +1,11 @@
 import React, {useState} from 'react';
+import Wrapper from './components/Wrapper';
+import Top from './components/Top';
+import Screen from './components/Screen';
+import ButtonContainer from './components/ButtonContainer';
+import Button from './components/Button';
+
+import styled, {ThemeProvider} from "styled-components/macro";
 
 const btnValues = [
   [7, 8, 9, "DEL"],
@@ -10,9 +17,26 @@ const btnValues = [
 
 const operators = ["+", "-", "+","/","x"];
 
+const theme1 = {
+  mainBackground: 'hsl(222, 26%, 31%)',
+  toggleBackground: 'hsl(223, 31%, 20%)',
+  keypadBackground: 'hsl(223, 31%, 20%)',
+  screenBackground: 'hsl(224, 36%, 15%)',
+  keyBackground1: 'hsl(225, 21%, 49%)',
+  keyShadow1: 'hsl(224, 28%, 35%)',
+  keyBackground2: 'hsl(6, 63%, 50%)',
+  keyShadow2: 'hsl(6, 70%, 34%)',
+  keyBackground3: 'hsl(30, 25%, 89%)',
+  keyShadow3: 'hsl(28, 16%, 65%)',
+  toggle: 'hsl(6, 63%, 50%)',
+
+}
+
+
 const App = () => {
 
   /* Use state */
+  let [theme, setTheme] = useState({active: theme1});
   let [calc, setCalc] = useState({
     value: "0",
   });
@@ -139,53 +163,40 @@ const App = () => {
   }
 
   return (
-    <div className="wrapper">
-      <form className="calculator-form" name="calculatorForm">
+      <ThemeProvider theme={theme.active}>
+        <Wrapper>
+          <form className="calculator-form" name="calculatorForm">
 
-        <div className="top" >
-          <h1 className="app-title">calc</h1>
-          <div className="theme-switcher">
-            <span className="label">THEME</span>
-            <div className="switch-button-container">
-              <div>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-              </div>
-              <button className="switch-button"><div className="switch-ball"></div></button>
-            </div>
-          </div>
-        </div>
+            <Top/>
 
-        <div className="screen">
-          <input type="text" name="evalresult" value={calc.value} className="result"></input>
-        </div>
+            <Screen value={calc.value}/>
 
-        <div className="button-box">
-          {
-            btnValues.flat().map((btn, i) => {
-              return (
-                <button type="button" key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : "button"}
+            <ButtonContainer>
+              {
+                btnValues.flat().map((btn, i) => {
+                  return (
+                    <Button key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : ""}
 
-                onClick={
-                  btn === "DEL"
-                  ? deleteHandler
-                  : btn === "RESET"
-                  ? resetHandler
-                  : btn === "="
-                  ? resultHandler
-                  : operators.includes(btn)
-                  ? operatorHandler
-                  : btn === "."
-                  ? commaHandler
-                  : numberHandler
-                }
-                > {btn} </button>
-              );
-            })}
-          </div>
-      </form>
-    </div>
+                    onClick={
+                      btn === "DEL"
+                      ? deleteHandler
+                      : btn === "RESET"
+                      ? resetHandler
+                      : btn === "="
+                      ? resultHandler
+                      : operators.includes(btn)
+                      ? operatorHandler
+                      : btn === "."
+                      ? commaHandler
+                      : numberHandler
+                    }
+                    ></Button>
+                  );
+                })}
+              </ButtonContainer>
+          </form>
+        </Wrapper>
+      </ThemeProvider>
   )
 };
 

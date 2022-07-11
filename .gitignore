@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# draft
+/src/draf.md
+
 # testing
 /coverage
 
