@@ -12,10 +12,10 @@ import {theme1,theme2,theme3} from "./abstract/theme.js";
 import styled, {ThemeProvider} from "styled-components/macro";
 
 const btnValues = [
-  [7, 8, 9, "DEL"],
-  [4, 5, 6, "+"],
-  [1, 2, 3, "-"],
-  [".",0,'/','x'],
+  ["7", "8", "9", "DEL"],
+  ["4", "5", "6", "+"],
+  ["1", "2", "3", "-"],
+  [".","0",'/','x'],
   ["RESET",'=']
 ];
 
