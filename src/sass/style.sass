@@ -1,125 +1,13 @@
-/* base */
+/* Base */
 @import './base/__mixins.sass'
-@import './base/__colors.sass'
 @import './base/__base.sass'
 
-.wrapper
-  @include width-height(100vw, 100vh)
-  @include flexbox(column, center, center)
-  max-width: 375px
-  max-height: 667px
+/* Components */
+@import './components/wrapper.sass'
+@import './components/keypad.sass'
+@import './components/screen.sass'
+@import './components/top.sass'
+@import './components/key.sass'
+@import './components/app.sass'
 
-.top 
-  @include width-height(100%,undefined)
-  @include flexbox(row, space-between, flex-end)
-  /*background-color: rgba(0,240,0,0.3)*/
-  margin-bottom: 3.2rem
-
-  h1
-    align-self: center
-    color: white
-
-.theme-switcher
-  @include flexbox(row, space-between, flex-end)
-
-  .label
-    text-transform: uppercase
-    font-size: 1rem
-    letter-spacing: 0.13em
-    color: white
-    margin-right: 1.8rem
-    margin-bottom: 0.8rem
-
-.switch-button-container
-  @include flexbox(column, center, center)
-
-  div
-    @include width-height(5.2rem,100%)
-    @include flexbox(row, space-between,flex-end)
-    color: white
-    font-size: 1rem
-    margin-bottom: 0.9rem
-
-  button
-    @include width-height(7.1rem, 2.6rem)
-    border-radius: 1.2rem
-    border: none
-
-  .switch-ball
-    @include width-height(1.8rem, 1.8rem)
-    margin: 0.1rem 0 0 0.4rem
-    border-radius: 50%
-    background-color: red
-
-.screen
-  @include width-height(32.7rem,9rem)
-  background-color: rgba(grey, 0.8)
-  border-radius: 0.8rem
-  color: white
-
-  .result
-    @include width-height(100%, 100%)
-    text-align: end
-    padding-right: 2rem
-    background: transparent
-    color: white
-    font-size: 2.8rem
-    border: none
-    font-weight: bold
-
-.button-container
-  @include width-height(32.7rem,42rem)
-
-  width: 32.7rem
-  height: 42rem
-  display: grid
-  background-color: rgba(240,0,0,0.3)
-  grid-template-columns: repeat(4, 1fr)
-  grid-template-rows: repeat(5, 1fr)
-  justify-items: center
-  padding: 2.4rem
-  margin-top: 2.4rem
-  grid-column-gap: 1.2rem
-  grid-row-gap: 1.8rem
-  border-radius: 0.8rem
-
-button
-  @include width-height(6rem,6rem)
-  text-align: center
-  border: none
-  background-color: rgb(80, 60, 209)
-  font-size: 24px
-  color: rgb(255, 255, 255)
-  font-weight: bold
-  cursor: pointer
-  border-radius: 0.6rem
-  outline: none
-
-.equals
-  border-radius: 0.6rem
-  border: none
-  grid-column: 3/5
-  justify-self: stretch
-  @include width-height(13.3rem, 6rem)
-  background-color: green
-  color: white
-.reset
-  border-radius: 0.6rem
-  border: none
-  @include width-height(13.3rem, 6rem)
-  grid-column: 1/3
-  justify-self: stretch
-  color: white
-  font-size: 1.6rem
-  font-weight: bold
-  letter-spacing: 0.03em
-  background-color: green
-
-
-
-.App 
-  width:  100vw
-  height: 100vh
-  margin: 0
-  padding: 0
 
