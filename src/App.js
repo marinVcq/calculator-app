@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
+
+/* Components */
 import Wrapper from './components/Wrapper';
 import Top from './components/Top';
 import Screen from './components/Screen';
-import ButtonContainer from './components/ButtonContainer';
-import Button from './components/Button';
+import Keypad from './components/Keypad';
+import Key from './components/Key';
 
+/* Themes and Style */
+import {theme1,theme2,theme3} from "./abstract/theme.js";
 import styled, {ThemeProvider} from "styled-components/macro";
 
 const btnValues = [
@@ -16,22 +20,6 @@ const btnValues = [
 ];
 
 const operators = ["+", "-", "+","/","x"];
-
-const theme1 = {
-  mainBackground: 'hsl(222, 26%, 31%)',
-  toggleBackground: 'hsl(223, 31%, 20%)',
-  keypadBackground: 'hsl(223, 31%, 20%)',
-  screenBackground: 'hsl(224, 36%, 15%)',
-  keyBackground1: 'hsl(225, 21%, 49%)',
-  keyShadow1: 'hsl(224, 28%, 35%)',
-  keyBackground2: 'hsl(6, 63%, 50%)',
-  keyShadow2: 'hsl(6, 70%, 34%)',
-  keyBackground3: 'hsl(30, 25%, 89%)',
-  keyShadow3: 'hsl(28, 16%, 65%)',
-  toggle: 'hsl(6, 63%, 50%)',
-
-}
-
 
 const App = () => {
 
@@ -61,7 +49,7 @@ const App = () => {
   /* Reset function */
   const resetHandler = (e) => {
     e.preventDefault();
-    
+
     setCalc({
       ...calc,
       value: "0",
@@ -176,11 +164,11 @@ const App = () => {
 
             <Screen value={calc.value}/>
 
-            <ButtonContainer>
+            <Keypad>
               {
                 btnValues.flat().map((btn, i) => {
                   return (
-                    <Button key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : ""}
+                    <Key key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : btn === "DEL" ? "del" : ""}
 
                     onClick={
                       btn === "DEL"
@@ -195,10 +183,10 @@ const App = () => {
                       ? commaHandler
                       : numberHandler
                     }
-                    ></Button>
+                    ></Key>
                   );
                 })}
-              </ButtonContainer>
+              </Keypad>
           </form>
         </Wrapper>
       </ThemeProvider>
