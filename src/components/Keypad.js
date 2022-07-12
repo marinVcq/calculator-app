@@ -1,0 +1,13 @@
+import React from 'react';
+import styled, {ThemeProvider} from 'styled-components/macro';
+
+
+const Keypad = ({children}) => {
+	return	<KeypadDiv className="keypad">{children}</KeypadDiv>
+};
+
+const KeypadDiv = styled.button`
+	background-color: ${(props) => props.theme.toggleBackground};
+`
+
+export default Keypad;

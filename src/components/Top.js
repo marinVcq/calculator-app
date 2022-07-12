@@ -3,7 +3,7 @@ import styled, {ThemeProvider} from 'styled-components/macro';
 
 const Top = () => {
 	return(
-        <div className="top" >
+        <TopContainer className="top" >
           <h1 className="app-title">calc</h1>
           <div className="theme-switcher">
             <span className="label">THEME</span>
@@ -16,9 +16,13 @@ const Top = () => {
               <SwitchButton className="switch-button"><SwitchBall className="switch-ball"></SwitchBall></SwitchButton>
             </div>
           </div>
-        </div>
+        </TopContainer>
 	);
 }
+
+const TopContainer = styled.div`
+  color: ${(props) => props.theme.topText};
+`
 
 const SwitchButton = styled.button`
   background-color: ${(props) => props.theme.toggleBackground};
