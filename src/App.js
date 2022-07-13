@@ -177,11 +177,11 @@ const App = () => {
       <ThemeProvider theme={theme.active}>
         <Wrapper className="notranslate" >
 
-            <Top  className="notranslate" onClick={switchTheme}/>
+            <Top onClick={switchTheme}/>
 
-            <Screen  className="notranslate" value={calc.value}/>
+            <Screen value={calc.value}/>
 
-            <Keypad className="notranslate">
+            <Keypad>
               {
                 btnValues.flat().map((btn, i) => {
                   return (

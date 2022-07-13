@@ -5,19 +5,19 @@ const Key = ({className, value, onClick}) => {
 
 	if(className === "equals"){
 		return(
-			<KeyEquals type="button" className={className} onClick={onClick} value={value}>{value}</KeyEquals>
+			<KeyEquals type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyEquals>
 		);		
 	}else if(className === "del"){
 		return(
-			<KeyDelete type="button" className={className} onClick={onClick} value={value}>{value}</KeyDelete>
+			<KeyDelete type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyDelete>
 		);
 	}else if(className === "reset"){
 		return(
-			<KeyReset type="button" className={className} onClick={onClick} value={value}>{value}</KeyReset>
+			<KeyReset type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyReset>
 		);
 	}else{
 		return(
-			<KeyNum type="button" className={className} onClick={onClick} value={value}>{value}</KeyNum>
+			<KeyNum type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyNum>
 		);		
 	}
 

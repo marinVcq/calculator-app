@@ -4,9 +4,9 @@ import styled, {ThemeProvider} from 'styled-components/macro';
 const Top = ({onClick}) => {
 	return(
         <TopContainer className="top" >
-          <h1 className="app-title">calc</h1>
+          <h1 translate="no" className="app-title">calc</h1>
           <div className="theme-switcher">
-            <span className="label">THEME</span>
+            <span className="label" translate="no">THEME</span>
             <div className="switch-button-container">
               <div>
                 <span>1</span>
