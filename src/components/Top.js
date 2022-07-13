@@ -5,15 +5,15 @@ const Top = ({onClick}) => {
 	return(
         <TopContainer className="top" >
           <h1 translate="no" className="app-title">calc</h1>
-          <div className="theme-switcher">
-            <span className="label" translate="no">THEME</span>
-            <div className="switch-button-container">
+          <div className="topRightContainer">
+            <span className="label" translate="no">theme</span>
+            <div className="toggleContainer">
               <div>
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
               </div>
-              <SwitchButton className="switch-button"><Toggle className="switch-ball" onClick={onClick}></Toggle></SwitchButton>
+              <SwitchButton className="switch-button" onClick={onClick}><Toggle className="toggle"></Toggle></SwitchButton>
             </div>
           </div>
         </TopContainer>

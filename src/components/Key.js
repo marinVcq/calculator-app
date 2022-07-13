@@ -7,7 +7,7 @@ const Key = ({className, value, onClick}) => {
 		return(
 			<KeyEquals type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyEquals>
 		);		
-	}else if(className === "del"){
+	}else if(className === "delete"){
 		return(
 			<KeyDelete type="button" translate="no" className={className} onClick={onClick} value={value}>{value}</KeyDelete>
 		);
@@ -26,18 +26,22 @@ const Key = ({className, value, onClick}) => {
 const KeyNum = styled.button`
 	background-color: ${(props) => props.theme.numbersBackground};
 	color: ${(props) => props.theme.numbersText};
+	box-shadow: 0 4px 0 0 ${(props) => props.theme.numbersShadow};
 `
 const KeyDelete = styled.button`
 	background-color: ${(props) => props.theme.deleteBackground};
 	color: ${(props) => props.theme.deleteText};
+	box-shadow: 0 4px 0 0 ${(props) => props.theme.deleteShadow};
 `
 const KeyEquals = styled.button`
 	background-color: ${(props) => props.theme.equalsBackground};
 	color: ${(props) => props.theme.equalsText};
+	box-shadow: 0 4px 0 0 ${(props) => props.theme.equalsShadow};
 `
 const KeyReset = styled.button`
 	background-color: ${(props) => props.theme.resetBackground};
 	color: ${(props) => props.theme.resetText};
+	box-shadow: 0 4px 0 0 ${(props) => props.theme.resetShadow};
 `
 
 export default Key;
