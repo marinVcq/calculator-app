@@ -1,8 +1,16 @@
 .screen
-  border: none
   @include width-height(32.7rem,9rem)
+  border: none
   border-radius: 0.8rem
   text-align: end
   font-size: 2.8rem
+  letter-spacing: 0.08em
   font-weight: bold
-  padding-right: 2rem
+  font-family: "League Spartan"
+  padding-right: 2.8rem
+
+@include respond(desktop)
+  .screen
+    @include width-height(54rem, 12.8rem)
+    font-size: 4.4rem
+    letter-spacing: 0.02em

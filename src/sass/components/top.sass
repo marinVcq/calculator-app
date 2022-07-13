@@ -1,36 +1,43 @@
 .top 
-  @include width-height(32.7rem,undefined)
+  width: 32.7rem
   @include flexbox(row, space-between, flex-end)
   margin-bottom: 3.2rem
 
   h1
     align-self: center
 
-.theme-switcher
-  @include flexbox(row, space-between, flex-end)
+.topRightContainer
+  @include flexbox(row, flex-end, flex-end)
 
   .label
     text-transform: uppercase
     font-size: 1rem
-    letter-spacing: 0.13em
-    margin-right: 1.8rem
-    margin-bottom: 0.8rem
+    letter-spacing: 0.17em
+    margin: 0 2.5rem 0.8rem 0
+    font-weight: 700
 
-.switch-button-container
-  @include flexbox(column, center, center)
+.toggleContainer
+  @include flexbox(column, flex-end, center)
+  width: 7.1rem
 
   div
     @include width-height(5.2rem,100%)
     @include flexbox(row, space-between,flex-end)
     font-size: 1rem
-    margin-bottom: 0.9rem
+    margin-bottom: 0.7rem
 
   button
     @include width-height(7.1rem, 2.6rem)
     border-radius: 1.2rem
+    cursor: pointer
     border: none
 
-  .switch-ball
-    @include width-height(1.8rem, 1.8rem)
+  .toggle
+    @include width-height(1.7rem, 1.7rem)
     margin: 0.1rem 0 0 0.4rem
     border-radius: 50%
+    transition: transform 0.4s
+
+@include respond(desktop)
+  .top
+    width: 54rem
