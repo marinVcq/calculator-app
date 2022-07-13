@@ -12,6 +12,9 @@ import Footer from './components/Footer'
 import {theme1,theme2,theme3} from "./abstract/theme.js";
 import styled, {ThemeProvider} from "styled-components/macro";
 
+/* Helmet */
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const btnValues = [
   ["7", "8", "9", "DEL"],
   ["4", "5", "6", "+"],
@@ -128,36 +131,43 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={theme.active}>
-      <Wrapper >
-          <Top onClick={switchTheme}/>
-          <Screen value={calc.value}/>
-          <Keypad>
-            {
-              btnValues.flat().map((btn, i) => {
-                return (
-                  <Key key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : btn === "DEL" ? "delete" : "number"}
+    <HelmetProvider>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Calculator App</title>
+      </Helmet>
+      <ThemeProvider theme={theme.active}>
+        <Wrapper >
+            <Top onClick={switchTheme}/>
+            <Screen value={calc.value}/>
+            <Keypad>
+              {
+                btnValues.flat().map((btn, i) => {
+                  return (
+                    <Key key={i} value={btn} className={btn === "=" ? "equals" : btn === "RESET" ? "reset" : btn === "DEL" ? "delete" : "number"}
 
-                  onClick={
-                    btn === "DEL"
-                    ? deleteHandler
-                    : btn === "RESET"
-                    ? resetHandler
-                    : btn === "="
-                    ? resultHandler
-                    : operators.includes(btn)
-                    ? operatorHandler
-                    : btn === "."
-                    ? commaHandler
-                    : numberHandler
-                  }
-                  ></Key>
-                );
-              })}
-            </Keypad>
-      </Wrapper>
-      <Footer/>
-    </ThemeProvider>
+                    onClick={
+                      btn === "DEL"
+                      ? deleteHandler
+                      : btn === "RESET"
+                      ? resetHandler
+                      : btn === "="
+                      ? resultHandler
+                      : operators.includes(btn)
+                      ? operatorHandler
+                      : btn === "."
+                      ? commaHandler
+                      : numberHandler
+                    }
+                    ></Key>
+                  );
+                })}
+              </Keypad>
+        </Wrapper>
+        <Footer/>
+      </ThemeProvider>
+    </HelmetProvider>
+
   )
 };
 
