@@ -4,7 +4,7 @@ import styled, {ThemeProvider} from 'styled-components/macro';
 
 const Screen = ({value}) => {
 	return (
-    <ScreenInput className="screen" type="text" name="evalresult" value={value}></ScreenInput>
+    <ScreenInput className="screen" type="text" name="evalresult" value={value} readOnly></ScreenInput>
 	);
 }
 

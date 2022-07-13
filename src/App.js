@@ -155,16 +155,33 @@ const App = () => {
     }
   }
 
+  /* Toggle theme function */
+  const switchTheme = () => {
+
+    if(theme.active === theme1){
+      setTheme({
+        active: theme2,
+      })
+    }else if(theme.active === theme2){
+      setTheme({
+        active: theme3,
+      })      
+    }else{
+      setTheme({
+        active: theme1,
+      })
+    }
+  }
+
   return (
       <ThemeProvider theme={theme.active}>
-        <Wrapper>
-          <form className="calculator-form" name="calculatorForm">
+        <Wrapper className="notranslate" >
 
-            <Top/>
+            <Top  className="notranslate" onClick={switchTheme}/>
 
-            <Screen value={calc.value}/>
+            <Screen  className="notranslate" value={calc.value}/>
 
-            <Keypad>
+            <Keypad className="notranslate">
               {
                 btnValues.flat().map((btn, i) => {
                   return (
@@ -187,7 +204,6 @@ const App = () => {
                   );
                 })}
               </Keypad>
-          </form>
         </Wrapper>
       </ThemeProvider>
   )

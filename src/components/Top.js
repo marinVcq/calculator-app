@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {ThemeProvider} from 'styled-components/macro';
 
-const Top = () => {
+const Top = ({onClick}) => {
 	return(
         <TopContainer className="top" >
           <h1 className="app-title">calc</h1>
@@ -13,7 +13,7 @@ const Top = () => {
                 <span>2</span>
                 <span>3</span>
               </div>
-              <SwitchButton className="switch-button"><SwitchBall className="switch-ball"></SwitchBall></SwitchButton>
+              <SwitchButton className="switch-button"><Toggle className="switch-ball" onClick={onClick}></Toggle></SwitchButton>
             </div>
           </div>
         </TopContainer>
@@ -28,8 +28,9 @@ const SwitchButton = styled.button`
   background-color: ${(props) => props.theme.toggleBackground};
 `
 
-const SwitchBall = styled.div`
+const Toggle = styled.div`
   background-color: ${(props) => props.theme.toggle};
+  transform: translateX( ${(props) => props.theme.togglePosition});
 `
 
 export default Top;

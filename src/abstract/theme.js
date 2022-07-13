@@ -28,6 +28,8 @@ export const theme1 = {
   topText: "white", 
   screenText: "white",
 
+  togglePosition: "0",
+
 }
 
 export const theme2 = {
@@ -58,6 +60,9 @@ export const theme2 = {
   topText: COLORS.veryDarkGrayishYellow, 
   screenText: COLORS.veryDarkGrayishYellow,
 
+  togglePosition: "22px",
+
+
 }
 
 export const theme3 = {
@@ -87,4 +92,7 @@ export const theme3 = {
   deleteText: "white",
   topText: COLORS.lightYellow, 
   screenText: COLORS.lightYellow,
+
+  togglePosition: "44px",
+
 }

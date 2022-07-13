@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Helmet } from 'react-helmet';
 
 /* CSS */
 import './css/style.css';
@@ -11,14 +10,6 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <Helmet htmlAttributes={{ lang: 'en' }} meta={[
-    {
-      name:'google',
-      content: 'notranslate',
-
-    },
-    ]}/>
-
     <App />
   </React.StrictMode>
 );

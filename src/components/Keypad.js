@@ -6,7 +6,7 @@ const Keypad = ({children}) => {
 	return	<KeypadDiv className="keypad">{children}</KeypadDiv>
 };
 
-const KeypadDiv = styled.button`
+const KeypadDiv = styled.div`
 	background-color: ${(props) => props.theme.toggleBackground};
 `
 
