@@ -138,6 +138,7 @@ button {
   cursor: pointer;
   border-radius: 0.6rem;
   outline: none;
+  text-shadow: #00FF00 1px 0 4px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 .number {
