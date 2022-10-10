@@ -54,6 +54,8 @@ body {
   border-radius: 0.8rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+/*    Responsive Design    */
+
 @media only screen and (min-width: 600px) {
   .keypad {
     width: 54rem;
@@ -138,6 +140,7 @@ button {
   cursor: pointer;
   border-radius: 0.6rem;
   outline: none;
+  text-shadow: #00FF00 1px 0 4px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 .number {
@@ -192,9 +195,9 @@ button {
   text-align: center;
   font-size: 1.1rem;
   letter-spacing: 0.1em;
-  color: white; }
+  color: wheat }
   .attribution a {
-    color: white;
+    color: wheat;
     font-weight: 700;
     text-decoration: none; }
 

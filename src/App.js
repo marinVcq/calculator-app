@@ -6,7 +6,7 @@ import Top from './components/Top';
 import Screen from './components/Screen';
 import Keypad from './components/Keypad';
 import Key from './components/Key';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
 
 /* Themes and Style */
 import {theme1,theme2,theme3} from "./abstract/theme.js";
